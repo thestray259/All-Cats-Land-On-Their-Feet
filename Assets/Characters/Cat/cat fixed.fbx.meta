@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1538f3d9bdf16c44688f63d8297e426e
+guid: bb6de79ae71ff0b439785d8ab1b80f68
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -11,7 +11,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cat_skin
-    second: {fileID: 2100000, guid: 6f342fc1081a0d84e8d7096c25be359d, type: 2}
+    second: {fileID: 2100000, guid: 82c967ac0a732414cb817a725c9bab0c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -102,7 +102,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
