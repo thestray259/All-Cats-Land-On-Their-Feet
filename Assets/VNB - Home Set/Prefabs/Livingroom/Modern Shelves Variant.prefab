@@ -12,6 +12,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1846290516914606696, guid: 3ec4e09ad1aa44f4db2b8de1dbc2c67b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846290516914606696, guid: 3ec4e09ad1aa44f4db2b8de1dbc2c67b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846290516914606696, guid: 3ec4e09ad1aa44f4db2b8de1dbc2c67b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846290516914606696, guid: 3ec4e09ad1aa44f4db2b8de1dbc2c67b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -53,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4538175129291623729, guid: 3ec4e09ad1aa44f4db2b8de1dbc2c67b, type: 3}
       propertyPath: m_Name
-      value: Modern Shelves
+      value: Modern Shelves Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6450748998073982362, guid: 3ec4e09ad1aa44f4db2b8de1dbc2c67b, type: 3}
       propertyPath: m_Materials.Array.data[0]
