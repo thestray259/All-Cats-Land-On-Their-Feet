@@ -10,35 +10,43 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float rotateSpeed = 20;
     [SerializeField] ForceMode forceMode;
     [SerializeField] Transform viewTransform;
+    [SerializeField] Transform cameraTransform;
 
-    private CharacterController controller;
-    private Animator animator;
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    private float gravityValue = -9.81f;
+    //private CharacterController controller;
+    //private Animator animator;
+    //private Vector3 playerVelocity;
+    //private bool groundedPlayer;
+    //private float gravityValue = -9.81f;
 
-    float airTime = 0; 
+    //Vector3 gravity = Physics.gravity; 
+    bool gravityFlipped = false; 
+
+    //float airTime = 0; 
 
     Rigidbody rb;
     Vector3 force = Vector3.zero;
-    Vector3 velocity = Vector3.zero;
+    //Vector3 velocity = Vector3.zero;
 
     private void Start()
     {
-        controller = gameObject.GetComponent<CharacterController>();
-        animator = gameObject.GetComponent<Animator>();
+        //controller = gameObject.GetComponent<CharacterController>();
+        //animator = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+
+        Physics.gravity = new Vector3(0, -9.8f, 0);
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
+            if (gravityFlipped == false) transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
+            else transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
+            if (gravityFlipped == false) transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
+            else transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
@@ -50,48 +58,30 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            if (gravityFlipped == false) rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            else rb.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (gravityFlipped == false)
+            {
+                Physics.gravity = new Vector3(0, 9.8f, 0);
+                gravityFlipped = true;
+                transform.eulerAngles += new Vector3(0, 0, 180);
 
-        /*        // xz movement
-                Vector3 direction = Vector3.zero;
-                direction.x = Input.GetAxis("Horizontal");
-                direction.z = Input.GetAxis("Vertical");
-                direction = Vector3.ClampMagnitude(direction, 1);
+                viewTransform.transform.eulerAngles += new Vector3(0, 0, 180);
+                //cameraTransform.transform.eulerAngles += new Vector3(0, 0, 180);
+            }
+            else
+            {
+                Physics.gravity = new Vector3(0, -9.8f, 0);
+                gravityFlipped = false;
+                transform.eulerAngles -= new Vector3(0, 0, 180);
 
-                // convert direction from world space to view space
-                Quaternion viewSpace = Quaternion.AngleAxis(viewTransform.rotation.eulerAngles.y, Vector3.up);
-                direction = viewSpace * direction;
-
-                // y movement
-                animator.SetBool("isGrounded", controller.isGrounded);
-                if (controller.isGrounded)
-                {
-                    airTime = 0;
-                    if (velocity.y < 0) velocity.y = 0;
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        velocity.y = jumpForce;
-                    }
-                }
-                else
-                {
-                    airTime += Time.deltaTime;
-                }
-                velocity += Physics.gravity * Time.deltaTime;
-
-                // move character (xyz)
-                controller.Move(((direction * playerSpeed) + velocity) * Time.deltaTime);
-
-                // face direction
-                if (direction.magnitude > 0)
-                {
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-                }
-
-                animator.SetFloat("speed", (direction * playerSpeed).magnitude);
-                animator.SetFloat("velocityY", velocity.y);
-                animator.SetFloat("airTime", airTime);*/
+                viewTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
+                //cameraTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
+            }
+        }
     }
 
     private void FixedUpdate()
