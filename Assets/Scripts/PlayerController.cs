@@ -17,8 +17,11 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
     private float gravityValue = -9.81f;
 
+    float airTime = 0; 
+
     Rigidbody rb;
     Vector3 force = Vector3.zero;
+    Vector3 velocity = Vector3.zero;
 
     private void Start()
     {
@@ -47,52 +50,48 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("Jumping"); 
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
-        /*        Vector3 direction = Vector3.zero;
-
+        /*        // xz movement
+                Vector3 direction = Vector3.zero;
                 direction.x = Input.GetAxis("Horizontal");
                 direction.z = Input.GetAxis("Vertical");
+                direction = Vector3.ClampMagnitude(direction, 1);
 
-                // view space
+                // convert direction from world space to view space
                 Quaternion viewSpace = Quaternion.AngleAxis(viewTransform.rotation.eulerAngles.y, Vector3.up);
                 direction = viewSpace * direction;
 
-                // world space
-                force = direction * maxForce;
-
-                //force = viewSpace * force; 
-
-                if (Input.GetButtonDown("Jump"))
+                // y movement
+                animator.SetBool("isGrounded", controller.isGrounded);
+                if (controller.isGrounded)
                 {
-                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                }*/
-
-        /*        groundedPlayer = controller.isGrounded;
-                if (groundedPlayer && playerVelocity.y < 0)
+                    airTime = 0;
+                    if (velocity.y < 0) velocity.y = 0;
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        velocity.y = jumpForce;
+                    }
+                }
+                else
                 {
-                    playerVelocity.y = 0f;
+                    airTime += Time.deltaTime;
+                }
+                velocity += Physics.gravity * Time.deltaTime;
+
+                // move character (xyz)
+                controller.Move(((direction * playerSpeed) + velocity) * Time.deltaTime);
+
+                // face direction
+                if (direction.magnitude > 0)
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
                 }
 
-                Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-                controller.Move(move * Time.deltaTime * playerSpeed);
-                animator.SetFloat("Speed", move.magnitude);
-
-                if (move != Vector3.zero)
-                {
-                    gameObject.transform.forward = move;
-                }
-
-                // Changes the height position of the player..
-                if (Input.GetButtonDown("Jump") && groundedPlayer)
-                {
-                    playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-                }
-
-                playerVelocity.y += gravityValue * Time.deltaTime;
-                controller.Move(playerVelocity * Time.deltaTime);*/
+                animator.SetFloat("speed", (direction * playerSpeed).magnitude);
+                animator.SetFloat("velocityY", velocity.y);
+                animator.SetFloat("airTime", airTime);*/
     }
 
     private void FixedUpdate()
