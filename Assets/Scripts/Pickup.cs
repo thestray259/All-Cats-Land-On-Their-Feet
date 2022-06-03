@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float amplitude; // how much goes up and down 
+    public float rate;
+    public float spinRate;
+
+    Vector3 initialPosition;
+    float time;
+    float angle;
+
     void Start()
     {
-        
+        time = Random.Range(0.0f, 5.0f);
+        angle = Random.Range(0f, 360f);
+        initialPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        time += Time.deltaTime * rate;
+        angle += Time.deltaTime * spinRate;
+
+        Vector3 offset = Vector3.up * Mathf.Sin(time) * amplitude;
+        transform.position = initialPosition + offset;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
     }
 }

@@ -21,24 +21,18 @@ public class Game : Singleton<Game>
 	[SerializeField] GameObject gameOverScreen;
 
 	public GameData gameData;
+	[SerializeField] TMP_Text percentUI;
 
 	float stateTimer = 3; 
 
 	State state = State.TITLE;
-	int highScore;
+
+	public int percentage { set { if (percentUI == null) return; percentUI.text = value.ToString() + "%"; } }
 
 	private void Start()
 	{
-		highScore = PlayerPrefs.GetInt("highscore", 0);
-		highScore++;
-		PlayerPrefs.SetInt("highscore", highScore);
-
-		//PlayerPrefs.DeleteAll();
-		//PlayerPrefs.DeleteKey("highscore");
-
-		gameData.intData["Lives"] = 3; 
-		gameData.intData["WitchesLeft"] = 7;
-		gameData.intData["Score"] = 0; 
+		gameData.intData["RatCount"] = 4;
+		gameData.intData["TreatCount"] = 6; 
 
 		InitScene();
 		SceneManager.activeSceneChanged += OnSceneWasLoaded; 
@@ -82,7 +76,7 @@ public class Game : Singleton<Game>
 
 	public void OnPlayerDead()
     {
-		gameData.intData["Lives"]--; 
+/*		gameData.intData["Lives"]--; 
 
 		if (gameData.intData["Lives"] == 0)
         {
@@ -91,36 +85,48 @@ public class Game : Singleton<Game>
 		else
         {
 			OnLoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
-
-	public void OnCoinPickup()
-    {
-		gameData.intData["Score"] += 25; 
-    }
-
-	public void OnWitchDead()
-    {
-		gameData.intData["WitchesLeft"]--;
-		gameData.intData["Score"] += 100;
-
-		if (gameData.intData["WitchesLeft"] == 0)
-        {
-			gameOverScreen.SetActive(true);
-			stateTimer -= Time.deltaTime;
-			if (stateTimer >= 0)
-			{
-				gameData.intData["Lives"] = 3;
-				gameData.intData["WitchesLeft"] = 7;
-				gameData.intData["Score"] = 0;
-
-				OnLoadScene("Title");
-			}
-		}
+        }*/
     }
 
 	void OnSceneWasLoaded(Scene current, Scene next)
     {
 		InitScene(); 
     }
+
+	public void OnRatFound()
+    {
+		gameData.intData["RatCount"]--;
+		CalculatePercentage(); 
+	}
+
+	public void OnTreatFound()
+    {
+		gameData.intData["TreatCount"]--;
+		CalculatePercentage(); 
+	}
+
+	void CalculatePercentage()
+    {
+        int origRatCount = 4;
+		int origTreatCount = 6; 
+
+		int currRatCount = gameData.intData["RatCount"];
+		int currTreatCount = gameData.intData["TreatCount"];
+		float ratModifier = 1.5f;
+
+		int numerator = (int)Mathf.Round((currRatCount * ratModifier) + currTreatCount);
+		int denomerator = (int)Mathf.Round((origRatCount * ratModifier) + origTreatCount);
+        int percentage = numerator / denomerator * 100;
+
+		gameData.intData["Percentage"] = percentage;
+
+		int percentValue = 0;
+		gameData.Load("Percentage", ref percentValue);
+		percentage = percentValue;
+
+		if (percentage == 100)
+        {
+			// show game win / change to win state / go to next level 
+        }
+	}
 }

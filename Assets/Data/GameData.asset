@@ -15,7 +15,13 @@ MonoBehaviour:
   boolData:
     values: []
   intData:
-    values: []
+    values:
+    - key: RatCount
+      value: 0
+    - key: TreatCount
+      value: 0
+    - key: Percentage
+      value: 0
   floatData:
     values: []
   stringData:
