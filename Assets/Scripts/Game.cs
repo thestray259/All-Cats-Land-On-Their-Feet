@@ -114,11 +114,11 @@ public class Game : Singleton<Game>
 		int currTreatCount = gameData.intData["TreatCount"];
 		float ratModifier = 1.5f;
 
-		int numerator = (int)Mathf.Round((currRatCount * ratModifier) + currTreatCount);
-		int denomerator = (int)Mathf.Round((origRatCount * ratModifier) + origTreatCount);
-        int percentage = numerator / denomerator * 100;
+		float numerator = (currRatCount * ratModifier) + currTreatCount;
+		float denomerator = (origRatCount * ratModifier) + origTreatCount;
+        float percentage = 100 - (numerator / denomerator * 100);
 
-		gameData.intData["Percentage"] = percentage;
+		gameData.intData["Percentage"] = (int)percentage;
 
 		int percentValue = 0;
 		gameData.Load("Percentage", ref percentValue);
@@ -127,6 +127,7 @@ public class Game : Singleton<Game>
 		if (percentage == 100)
         {
 			// show game win / change to win state / go to next level 
-        }
+			gameOverScreen.SetActive(true);
+		}
 	}
 }

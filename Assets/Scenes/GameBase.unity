@@ -2023,6 +2023,7 @@ MonoBehaviour:
   sceneLoader: {fileID: 1389071287}
   gameOverScreen: {fileID: 413560959}
   gameData: {fileID: 11400000, guid: e7962882b49c8b84689cbcb207157ccf, type: 2}
+  percentUI: {fileID: 0}
 --- !u!4 &1389071289
 Transform:
   m_ObjectHideFlags: 0
@@ -2331,10 +2332,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You Win! '
+  m_text: Level Complete!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
-  m_sharedMaterial: {fileID: 125784015725259218, guid: da491c58145b8a6429db35770cff3ccd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e37d0a3a8b8edf54cb442d7e04dd50ea, type: 2}
+  m_sharedMaterial: {fileID: -6134644060069372623, guid: e37d0a3a8b8edf54cb442d7e04dd50ea, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2397,7 +2398,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1659768993
