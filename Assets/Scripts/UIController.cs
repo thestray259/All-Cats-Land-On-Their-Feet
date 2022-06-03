@@ -16,10 +16,12 @@ public class UIController : MonoBehaviour
 		Application.Quit();
 	}
 
-	public void OnResume()
+	public void OnResume() // doesn't work 
     {
-		Pause pause = gameObject.AddComponent<Pause>();
-		pause.paused = false; 
+		Debug.Log("Resume Pressed");
+
+		//Pause pause = new Pause(); 
+		//pause.PauseGame(); 
     }
 
 	public void OnOptions()
@@ -30,8 +32,5 @@ public class UIController : MonoBehaviour
 	public void OnBack()
     {
 		optionsUI.SetActive(false); 
-
-		Pause pause = gameObject.AddComponent<Pause>();
-		pause.paused = true;
 	}
 }

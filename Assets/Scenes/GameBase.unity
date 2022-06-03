@@ -798,7 +798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &474941205
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2023,7 +2023,7 @@ MonoBehaviour:
   sceneLoader: {fileID: 1389071287}
   gameOverScreen: {fileID: 413560959}
   gameData: {fileID: 11400000, guid: e7962882b49c8b84689cbcb207157ccf, type: 2}
-  percentUI: {fileID: 0}
+  percentUI: {fileID: 114785483}
 --- !u!4 &1389071289
 Transform:
   m_ObjectHideFlags: 0

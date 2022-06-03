@@ -116,15 +116,15 @@ public class Game : Singleton<Game>
 
 		float numerator = (currRatCount * ratModifier) + currTreatCount;
 		float denomerator = (origRatCount * ratModifier) + origTreatCount;
-        float percentage = 100 - (numerator / denomerator * 100);
+        float percentageCalc = 100 - (numerator / denomerator * 100);
 
-		gameData.intData["Percentage"] = (int)percentage;
+		gameData.intData["Percentage"] = (int)percentageCalc;
 
 		int percentValue = 0;
 		gameData.Load("Percentage", ref percentValue);
 		percentage = percentValue;
 
-		if (percentage == 100)
+		if (percentageCalc == 100)
         {
 			// show game win / change to win state / go to next level 
 			gameOverScreen.SetActive(true);

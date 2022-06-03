@@ -19,11 +19,16 @@ public class Pause : Singleton<Pause>
         }
     }
 
+    public void PauseGame()
+    {
+        paused = !paused; 
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            paused = !paused;
+            PauseGame(); 
         }
     }
 }
