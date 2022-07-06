@@ -29,7 +29,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        MovePlayer(); 
+        if (playerInput.currentControlScheme == "KeyboardMouse") MovePlayer();
+        if (playerInput.currentControlScheme == "Gamepad")
+        {
+            Vector2 input = playerInput.actions["Move"].ReadValue<Vector2>();
+            transform.Translate(new Vector3(0, 0, input.y * playerSpeed * Time.deltaTime));
+
+            input = playerInput.actions["Turn"].ReadValue<Vector2>();
+            transform.Rotate(new Vector3(0, input.x * rotateSpeed * Time.deltaTime, 0));
+        }
+        
     }
 
     private void FixedUpdate()
