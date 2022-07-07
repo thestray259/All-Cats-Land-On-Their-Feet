@@ -96,8 +96,30 @@
                 },
                 {
                     "name": "",
+                    "id": "3e80c6a7-7e12-4bc7-90da-b0548a56eb0d",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1685e5d3-cf62-41df-a31b-5bafd20e1d93",
-                    "path": "<Gamepad>/rightStick",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08cf7b12-9bed-4e8b-92b0-a9834d90321a",
+                    "path": "<Gamepad>/dpad",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

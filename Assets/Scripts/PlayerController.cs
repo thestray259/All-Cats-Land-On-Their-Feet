@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour
             transform.Translate(new Vector3(0, 0, input.y * playerSpeed * Time.deltaTime));
 
             input = playerInput.actions["Turn"].ReadValue<Vector2>();
-            transform.Rotate(new Vector3(0, input.x * rotateSpeed * Time.deltaTime, 0));
+            if (gravityFlipped == false) transform.Rotate(new Vector3(0, input.x * rotateSpeed * Time.deltaTime, 0));
+            else transform.Rotate(new Vector3(0, -input.x * rotateSpeed * Time.deltaTime, 0));
         }
         
     }
@@ -48,8 +49,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnFlipGravity()
     {
-        Debug.Log("Gravity flipped!");
-
         if (gravityFlipped == false)
         {
             Physics.gravity = new Vector3(0, 9.8f, 0);
@@ -72,8 +71,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump()
     {
-        Debug.Log("Jumped!"); 
-
         if (gravityFlipped == false) rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         else rb.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
     }
@@ -81,13 +78,10 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue inputValue)
     {
         input = inputValue.Get<Vector2>();
-        Debug.Log("Move Pressed");
     }
 
     void MovePlayer()
     {
-        Vector3 movement = new Vector3(input.x, 0.0f, input.y);
-
         if (playerInput.currentControlScheme == "KeyboardMouse")
         {
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
@@ -109,29 +103,5 @@ public class PlayerController : MonoBehaviour
                 transform.position += -transform.forward * playerSpeed * Time.deltaTime;
             }
         }
-
-        if (playerInput.currentControlScheme == "Gamepad")
-        {
-            if (Gamepad.current.leftStick.right.wasPressedThisFrame)
-            {
-                if (gravityFlipped == false) transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
-                else transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
-            }
-            if (Gamepad.current.leftStick.left.wasPressedThisFrame)
-            {
-                if (gravityFlipped == false) transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
-                else transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
-            }
-            if (Gamepad.current.leftStick.up.wasPressedThisFrame)
-            {
-                transform.position += transform.forward * playerSpeed * Time.deltaTime;
-            }
-            if (Gamepad.current.leftStick.down.wasPressedThisFrame)
-            {
-                transform.position += -transform.forward * playerSpeed * Time.deltaTime;
-            }
-        }
     }
-
-
 }

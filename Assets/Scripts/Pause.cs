@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem; 
 
 public class Pause : Singleton<Pause>
 {
@@ -26,7 +27,7 @@ public class Pause : Singleton<Pause>
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame)
         {
             PauseGame(); 
         }
