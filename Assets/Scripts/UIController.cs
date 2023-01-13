@@ -20,8 +20,8 @@ public class UIController : MonoBehaviour
     {
 		Debug.Log("Resume Pressed");
 
-		//Pause pause = new Pause(); 
-		//pause.PauseGame(); 
+		Pause pause = new Pause(); 
+		pause.PauseGame(); 
     }
 
 	public void OnOptions()
