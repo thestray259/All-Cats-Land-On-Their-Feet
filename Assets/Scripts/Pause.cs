@@ -27,7 +27,7 @@ public class Pause : Singleton<Pause>
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame)
+        if (Input.GetKeyDown(KeyCode.Escape) || Gamepad.current.startButton.wasPressedThisFrame) // if no gamepad is connected, throws null reference on title screen 
         {
             PauseGame(); 
         }
