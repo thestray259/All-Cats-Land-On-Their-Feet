@@ -1,107 +1,94 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField][Range(1, 10)] float playerSpeed = 2;
-    [SerializeField] float jumpForce = 5;
-    [SerializeField] float rotateSpeed = 20;
-    [SerializeField] ForceMode forceMode;
-    [SerializeField] Transform viewTransform;
-    [SerializeField] Transform cameraTransform;
-    PlayerInput playerInput;
+	public CharacterController controller;
+	public Transform camera;
 
-    bool gravityFlipped = false; 
+	public float speed = 6f;
+	public float jumpForce = 5f;
+	public bool gravityFlipped;
+	private Vector3 velocity;
+	public float gravity;
+	public float playerZRotation;
 
-    Rigidbody rb;
-    Vector3 force = Vector3.zero;
-    Vector2 input = Vector2.zero;
+	public Rigidbody rb;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        playerInput = GetComponent<PlayerInput>();
+	public float turnSmoothTime = 0.1f;
+	private float turnSmoothVelocity;
 
-        Physics.gravity = new Vector3(0, -9.8f, 0);
+	void Start()
+	{
+		Physics.gravity = new Vector3(0, -9.8f, 0);
+	}
 
-        Debug.Log("Current Control Scheme: " + playerInput.currentControlScheme);
-    }
+	void Update()
+	{
+		//might need to remove raw
+		float horizontal = Input.GetAxisRaw("Horizontal");
+		float vertical = Input.GetAxisRaw("Vertical");
+		Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
-    void Update()
-    {
-        if (playerInput.currentControlScheme == "KeyboardMouse") MovePlayer();
-        if (playerInput.currentControlScheme == "Gamepad")
-        {
-            Vector2 input = playerInput.actions["Move"].ReadValue<Vector2>();
-            transform.Translate(new Vector3(0, 0, input.y * playerSpeed * Time.deltaTime));
+		rb.velocity += Physics.gravity * Time.fixedDeltaTime;
 
-            input = playerInput.actions["Turn"].ReadValue<Vector2>();
-            if (gravityFlipped == false) transform.Rotate(new Vector3(0, input.x * rotateSpeed * Time.deltaTime, 0));
-            else transform.Rotate(new Vector3(0, -input.x * rotateSpeed * Time.deltaTime, 0));
-        }
-        
-    }
+		if (direction.magnitude > 0.1)
+		{
+			//returns angle for player to rotate with movement
+			float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + camera.eulerAngles.y;
+			//smooths player rotation rotation
+			float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+			transform.rotation = Quaternion.Euler(0, angle, playerZRotation);
 
-    private void FixedUpdate()
-    {
-        rb.AddForce(force, forceMode);
-    }
+			Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+			controller.Move(moveDirection.normalized * speed * Time.deltaTime);
+		}
 
-    public void OnFlipGravity()
-    {
-        if (gravityFlipped == false)
-        {
-            Physics.gravity = new Vector3(0, 9.8f, 0);
-            gravityFlipped = true;
-            transform.eulerAngles += new Vector3(0, 0, 180);
+		if (Input.GetButtonDown("Jump"))
+		{
+			velocity.y = Mathf.Sqrt(jumpForce * -2 * gravity);
+		}
 
-            viewTransform.transform.eulerAngles += new Vector3(0, 0, 180);
-            //cameraTransform.transform.eulerAngles += new Vector3(0, 0, 180);
-        }
-        else
-        {
-            Physics.gravity = new Vector3(0, -9.8f, 0);
-            gravityFlipped = false;
-            transform.eulerAngles -= new Vector3(0, 0, 180);
+		if (Input.GetKeyDown(KeyCode.E))
+		{
+			OnFlipGravity();
+		}
 
-            viewTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
-            //cameraTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
-        }
-    }
+		velocity.y += gravity * Time.deltaTime;
 
-    public void OnJump()
-    {
-        if (gravityFlipped == false) rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        else rb.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
-    }
+		controller.Move(velocity * Time.deltaTime);
+	}
 
-    public void OnMove(InputValue inputValue)
-    {
-        input = inputValue.Get<Vector2>();
-    }
+	public void OnFlipGravity()
+	{
+		Debug.Log("gravity flipped");
+		if (gravityFlipped == false)
+		{
+			gravity *= -1;
+			playerZRotation += 180;
+			camera.Rotate(0, 0, 180);
+			//transform.eulerAngles += new Vector3(0, 0, 180);
 
-    void MovePlayer()
-    {
-        if (playerInput.currentControlScheme == "KeyboardMouse")
-        {
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-            {
-                if (gravityFlipped == false) transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
-                else transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
-            }
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-            {
-                if (gravityFlipped == false) transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
-                else transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
-            }
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-            {
-                transform.position += transform.forward * playerSpeed * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-            {
-                transform.position += -transform.forward * playerSpeed * Time.deltaTime;
-            }
-        }
-    }
+			/*Physics.gravity = new Vector3(0, 9.8f, 0);
+			gravityFlipped = true;
+			transform.eulerAngles += new Vector3(0, 0, 180);*/
+
+			//viewTransform.transform.eulerAngles += new Vector3(0, 0, 180);
+			//cameraTransform.transform.eulerAngles += new Vector3(0, 0, 180);
+		}
+		else
+		{
+			gravity *= -1;
+			playerZRotation -= 180;
+
+			/*Physics.gravity = new Vector3(0, -9.8f, 0);
+			gravityFlipped = false;
+			transform.eulerAngles -= new Vector3(0, 0, 180);*/
+
+			//viewTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
+			//cameraTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
+		}
+	}
 }
