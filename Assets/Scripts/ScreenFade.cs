@@ -46,7 +46,8 @@ public class ScreenFade : MonoBehaviour
         while (timer < time)
         {
             timer = timer + Time.deltaTime;
-            image.color = Color.Lerp(color1, color2, timer/time);
+
+            if(image != null) image.color = Color.Lerp(color1, color2, timer / time);
 
             yield return null;
         }
