@@ -5,9 +5,6 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
 	[SerializeField] GameObject optionsUI; 
-	[SerializeField] GameObject levelSelectUI;
-	[SerializeField] GameObject titleUI;
-
 
 	public void OnStartScene(string sceneName)
 	{
@@ -18,12 +15,6 @@ public class UIController : MonoBehaviour
 	{
 		Application.Quit();
 	}
-
-	public void OnSelectLevel()
-    {
-		titleUI.SetActive(false);
-		levelSelectUI.SetActive(true);
-    }
 
 	public void OnResume() // doesn't work 
     {
@@ -41,7 +32,15 @@ public class UIController : MonoBehaviour
 	public void OnBack()
     {
 		if(optionsUI != null) optionsUI.SetActive(false);
-		if(levelSelectUI != null) levelSelectUI.SetActive(false);
-		if (titleUI != null) titleUI.SetActive(true);
 	}
+
+	public void MenuOn(GameObject menuToTurnOn)
+    {
+		menuToTurnOn.SetActive(true);
+    }
+
+	public void MenuOff(GameObject menuToTurnOff)
+    {
+		menuToTurnOff.SetActive(false);
+    }
 }
