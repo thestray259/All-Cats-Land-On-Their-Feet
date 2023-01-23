@@ -22,6 +22,10 @@ public class Game : Singleton<Game>
 
 	public GameData gameData;
 	[SerializeField] TMP_Text percentUI;
+	[SerializeField] TMP_Text timerUI;
+
+	public bool timeTrial = false;
+	public float timer = 30;
 
 	float stateTimer = 3; 
 
@@ -32,7 +36,9 @@ public class Game : Singleton<Game>
 	private void Start()
 	{
 		gameData.intData["RatCount"] = 4;
-		gameData.intData["TreatCount"] = 6; 
+		gameData.intData["TreatCount"] = 6;
+
+		timerUI.enabled = false;
 
 		InitScene();
 		SceneManager.activeSceneChanged += OnSceneWasLoaded; 
@@ -50,6 +56,17 @@ public class Game : Singleton<Game>
 	private void Update()
 	{
 		stateTimer -= Time.deltaTime;
+
+		if(timeTrial == true)
+		{
+			timer -= Time.deltaTime;
+			timerUI.enabled = true;
+		}
+
+		if (timer <= 0)
+		{
+			state = State.GAME_OVER;
+		}
 
 		switch (state)
 		{

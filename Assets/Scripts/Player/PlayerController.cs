@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
 	{
-		Physics.gravity = new Vector3(0, -9.8f, 0);
+		//Physics.gravity = new Vector3(0, -9.8f, 0);
 	}
 
 	void Update()
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 		float vertical = Input.GetAxisRaw("Vertical");
 		Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
-		rb.velocity += Physics.gravity * Time.fixedDeltaTime;
+		//rb.velocity += Physics.gravity * Time.fixedDeltaTime;
 
 		if (direction.magnitude > 0.1)
 		{
