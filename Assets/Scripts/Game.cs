@@ -70,7 +70,7 @@ public class Game : Singleton<Game>
 
 	public void OnLoadScene(string sceneName)
     {
-		gameOverScreen.SetActive(false);
+		if (gameOverScreen != null) gameOverScreen.SetActive(false);
 		sceneLoader.Load(sceneName); 
 	}
 
@@ -107,6 +107,8 @@ public class Game : Singleton<Game>
 
 	void CalculatePercentage()
     {
+		if (percentUI == null) return;
+
         int origRatCount = 4;
 		int origTreatCount = 6; 
 

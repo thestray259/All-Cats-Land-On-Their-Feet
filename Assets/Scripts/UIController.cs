@@ -16,12 +16,10 @@ public class UIController : MonoBehaviour
 		Application.Quit();
 	}
 
-	public void OnResume() // doesn't work 
+	public void OnResume() 
     {
 		Debug.Log("Resume Pressed");
-
-		Pause pause = new Pause(); 
-		pause.PauseGame(); 
+		Pause.Instance.PauseGame();
     }
 
 	public void OnOptions()
