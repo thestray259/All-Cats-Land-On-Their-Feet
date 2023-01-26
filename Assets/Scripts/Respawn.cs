@@ -5,7 +5,7 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     [SerializeField] Transform respawnLocation;
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject player; // use cat fixed, not Player 
     //this script is to be put on the RESPAWN PLATFORMS
     // if player colliders with respawn boundaries, place player back at respawnLocation 
     private void OnCollisionEnter(Collision collision)
