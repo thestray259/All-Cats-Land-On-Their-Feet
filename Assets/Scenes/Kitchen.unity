@@ -385,12 +385,13 @@ GameObject:
   - component: {fileID: 20251650}
   - component: {fileID: 20251649}
   - component: {fileID: 20251648}
+  - component: {fileID: 20251651}
   m_Layer: 7
   m_Name: X Pos
   m_TagString: RespawnPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &20251647
 Transform:
@@ -468,6 +469,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20251646}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &20251651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20251646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41ed21eef6af3046922e764c9a628b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnLocation: {fileID: 1680066315}
+  player: {fileID: 82875432}
 --- !u!1001 &29449538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -731,6 +746,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7312109660802473957, guid: bce6788f99e5fad47a51b543326e26f3, type: 3}
   m_PrefabInstance: {fileID: 78769896}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &82875432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2322509330120271277, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
+  m_PrefabInstance: {fileID: 495546235}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &83545532
 GameObject:
@@ -2124,7 +2144,7 @@ GameObject:
   m_TagString: RespawnPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &386230908
 Transform:
@@ -2143,7 +2163,6 @@ Transform:
   - {fileID: 640581835}
   - {fileID: 1214569815}
   - {fileID: 20251647}
-  - {fileID: 1899288620}
   m_Father: {fileID: 1855257612}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2270,12 +2289,13 @@ GameObject:
   - component: {fileID: 408515995}
   - component: {fileID: 408515994}
   - component: {fileID: 408515993}
+  - component: {fileID: 408515996}
   m_Layer: 7
   m_Name: Bottom
   m_TagString: RespawnPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &408515992
 Transform:
@@ -2353,6 +2373,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408515991}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &408515996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408515991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41ed21eef6af3046922e764c9a628b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnLocation: {fileID: 1680066315}
+  player: {fileID: 82875432}
 --- !u!1001 &413530586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2889,6 +2923,10 @@ PrefabInstance:
       propertyPath: treatsUI
       value: 
       objectReference: {fileID: 1092968029}
+    - target: {fileID: 2322509330120271277, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3023830109111736477, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3747,12 +3785,13 @@ GameObject:
   - component: {fileID: 640581838}
   - component: {fileID: 640581837}
   - component: {fileID: 640581836}
+  - component: {fileID: 640581839}
   m_Layer: 7
   m_Name: Z Pos
   m_TagString: RespawnPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &640581835
 Transform:
@@ -3830,6 +3869,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640581834}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &640581839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640581834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41ed21eef6af3046922e764c9a628b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnLocation: {fileID: 1680066315}
+  player: {fileID: 82875432}
 --- !u!1001 &641647731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5360,8 +5413,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907295431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 11.75, z: 2.5}
-  m_LocalScale: {x: 15, y: 1, z: 15}
+  m_LocalPosition: {x: 2.5, y: 10.75, z: 2.5}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 1430909686}
   m_RootOrder: 1
@@ -5783,8 +5836,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034601398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: -0.75, z: 2.5}
-  m_LocalScale: {x: 15, y: 1, z: 15}
+  m_LocalPosition: {x: 2.5, y: -0.75, z: 2.5}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 1430909686}
   m_RootOrder: 0
@@ -6534,12 +6587,13 @@ GameObject:
   - component: {fileID: 1214569818}
   - component: {fileID: 1214569817}
   - component: {fileID: 1214569816}
+  - component: {fileID: 1214569819}
   m_Layer: 7
   m_Name: X Neg
   m_TagString: RespawnPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1214569815
 Transform:
@@ -6617,6 +6671,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214569814}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1214569819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214569814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41ed21eef6af3046922e764c9a628b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnLocation: {fileID: 1680066315}
+  player: {fileID: 82875432}
 --- !u!1001 &1222110444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6753,6 +6821,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3dd3c0f0df6731d4fb40976753d8254d, type: 3}
       propertyPath: m_Name
       value: Thicc_Pipe_Parental_Advisory
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3dd3c0f0df6731d4fb40976753d8254d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 3dd3c0f0df6731d4fb40976753d8254d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9502,12 +9574,13 @@ GameObject:
   - component: {fileID: 1753684107}
   - component: {fileID: 1753684106}
   - component: {fileID: 1753684105}
+  - component: {fileID: 1753684108}
   m_Layer: 7
   m_Name: Z Neg
   m_TagString: RespawnPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1753684104
 Transform:
@@ -9585,6 +9658,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753684103}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1753684108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753684103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41ed21eef6af3046922e764c9a628b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnLocation: {fileID: 1680066315}
+  player: {fileID: 82875432}
 --- !u!1 &1760784961
 GameObject:
   m_ObjectHideFlags: 0
@@ -10413,36 +10500,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a8569072b90dbd4d84c0ea20ef702e3, type: 3}
---- !u!1 &1899288619
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1899288620}
-  m_Layer: 9
-  m_Name: RespawnHere
-  m_TagString: RespawnPlace
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1899288620
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1899288619}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.75, y: 0, z: -1.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 386230908}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1908465394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10823,12 +10880,13 @@ GameObject:
   - component: {fileID: 1965397371}
   - component: {fileID: 1965397370}
   - component: {fileID: 1965397369}
+  - component: {fileID: 1965397372}
   m_Layer: 7
   m_Name: Top
   m_TagString: RespawnPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1965397368
 Transform:
@@ -10906,6 +10964,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965397367}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1965397372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965397367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41ed21eef6af3046922e764c9a628b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnLocation: {fileID: 1680066315}
+  player: {fileID: 82875432}
 --- !u!1001 &2008003081
 PrefabInstance:
   m_ObjectHideFlags: 0
