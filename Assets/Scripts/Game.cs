@@ -16,6 +16,13 @@ public class Game : Singleton<Game>
 		GAME_WIN
 	}
 
+	enum GameMode
+	{ 
+		COLLECT,
+		TIME_TRIAL,
+		ALT_GRAVITY
+	}
+
 	[SerializeField] ScreenFade screenFade;
 	[SerializeField] SceneLoader sceneLoader;
 	[SerializeField] GameObject gameOverScreen;
@@ -24,12 +31,15 @@ public class Game : Singleton<Game>
 	[SerializeField] TMP_Text percentUI;
 	[SerializeField] TMP_Text timerUI;
 
+
+
 	public bool timeTrial = false;
 	public float timer = 30;
 
 	float stateTimer = 3; 
 
 	State state = State.TITLE;
+	GameMode gameMode = GameMode.COLLECT;
 
 	public int percentage { set { if (percentUI == null) return; percentUI.text = value.ToString() + "%"; } }
 
@@ -38,7 +48,7 @@ public class Game : Singleton<Game>
 		gameData.intData["RatCount"] = 4;
 		gameData.intData["TreatCount"] = 6;
 
-		timerUI.enabled = false;
+		//timerUI.enabled = false;
 
 		InitScene();
 		SceneManager.activeSceneChanged += OnSceneWasLoaded; 
@@ -57,15 +67,19 @@ public class Game : Singleton<Game>
 	{
 		stateTimer -= Time.deltaTime;
 
-		if(timeTrial == true)
+		switch (gameMode)
 		{
-			timer -= Time.deltaTime;
-			timerUI.enabled = true;
-		}
-
-		if (timer <= 0)
-		{
-			state = State.GAME_OVER;
+			case GameMode.COLLECT:
+				CollectMode();
+				break;
+			case GameMode.TIME_TRIAL:
+				TimeTrialMode();
+				break;
+			case GameMode.ALT_GRAVITY:
+				AltGravityMode();
+				break;
+			default:
+				break;
 		}
 
 		switch (state)
@@ -146,5 +160,29 @@ public class Game : Singleton<Game>
 			// show game win / change to win state / go to next level 
 			gameOverScreen.SetActive(true);
 		}
+	}
+
+	public void CollectMode()
+	{
+
+	}
+
+	public void TimeTrialMode()
+	{
+		if (timeTrial == true)
+		{
+			timer -= Time.deltaTime;
+			timerUI.enabled = true;
+		}
+
+		if (timer <= 0)
+		{
+			state = State.GAME_OVER;
+		}
+	}
+
+	public void AltGravityMode()
+	{
+
 	}
 }

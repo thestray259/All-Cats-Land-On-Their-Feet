@@ -6,14 +6,26 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 	public CharacterController controller;
-	public Transform camera;
 
+	//camera
+	public Transform camera;
+	public Transform viewTransform;
+
+	//player stats
 	public float speed = 6f;
 	public float jumpForce = 5f;
-	public bool gravityFlipped;
-	private Vector3 velocity;
-	public float gravity;
 	public float playerZRotation;
+	private Vector3 velocity;
+
+	//gravity
+	public bool gravityFlipped;
+	public float gravity;
+
+	//grounded and jump
+	public float groundDistance = 0.4f;
+	public Transform groundCheck;
+	public LayerMask groundMask;
+	bool isGrounded;
 
 	public Rigidbody rb;
 
@@ -34,6 +46,14 @@ public class PlayerController : MonoBehaviour
 
 		//rb.velocity += Physics.gravity * Time.fixedDeltaTime;
 
+		isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+		Debug.Log(isGrounded);
+
+		if (isGrounded && velocity.y < 0)
+		{
+			velocity.y = -2f;
+		}
+
 		if (direction.magnitude > 0.1)
 		{
 			//returns angle for player to rotate with movement
@@ -46,7 +66,7 @@ public class PlayerController : MonoBehaviour
 			controller.Move(moveDirection.normalized * speed * Time.deltaTime);
 		}
 
-		if (Input.GetButtonDown("Jump"))
+		if (Input.GetButtonDown("Jump") && isGrounded)
 		{
 			velocity.y = Mathf.Sqrt(jumpForce * -2 * gravity);
 		}
@@ -64,31 +84,25 @@ public class PlayerController : MonoBehaviour
 	public void OnFlipGravity()
 	{
 		Debug.Log("gravity flipped");
+		
 		if (gravityFlipped == false)
 		{
+			velocity.y = 0;
 			gravity *= -1;
 			playerZRotation += 180;
-			camera.Rotate(0, 0, 180);
-			//transform.eulerAngles += new Vector3(0, 0, 180);
-
-			/*Physics.gravity = new Vector3(0, 9.8f, 0);
-			gravityFlipped = true;
-			transform.eulerAngles += new Vector3(0, 0, 180);*/
-
-			//viewTransform.transform.eulerAngles += new Vector3(0, 0, 180);
-			//cameraTransform.transform.eulerAngles += new Vector3(0, 0, 180);
+			
+			viewTransform.transform.eulerAngles += new Vector3(0, 0, 180);
+			viewTransform.transform.LookAt(transform.position);
 		}
 		else
 		{
+			velocity.y = 0;
 			gravity *= -1;
 			playerZRotation -= 180;
 
-			/*Physics.gravity = new Vector3(0, -9.8f, 0);
-			gravityFlipped = false;
-			transform.eulerAngles -= new Vector3(0, 0, 180);*/
-
-			//viewTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
-			//cameraTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
+			viewTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
+			viewTransform.transform.LookAt(transform.position);
+			
 		}
 	}
 }

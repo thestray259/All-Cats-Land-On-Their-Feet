@@ -231,6 +231,12 @@ MonoBehaviour:
   jumpForce: 2
   gravityFlipped: 0
   gravity: -15
+  playerZRotation: 0
+  groundDistance: 0.4
+  groundCheck: {fileID: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
   rb: {fileID: 647558429988403340}
   turnSmoothTime: 0.1
 --- !u!143 &3699494675934312779
@@ -250,7 +256,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Center: {x: 0, y: 0.225, z: 0}
 --- !u!54 &647558429988403340
 Rigidbody:
   m_ObjectHideFlags: 0
