@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7828058523215829794}
   - component: {fileID: 269111135991653645}
   - component: {fileID: 5461538232957920444}
+  - component: {fileID: -2343618025841269819}
   m_Layer: 0
   m_Name: Table (Modern)
   m_TagString: Untagged
@@ -51,7 +52,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -82,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-2343618025841269819
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219544330484885824}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8189173316503058083, guid: 6b91d8ef45459e948aac73a56830a8a5, type: 3}
