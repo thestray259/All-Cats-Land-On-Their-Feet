@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Game : Singleton<Game>
 {
-	enum State
+	public enum State
 	{
 		TITLE,
 		PLAYER_START,
@@ -16,7 +16,7 @@ public class Game : Singleton<Game>
 		GAME_WIN
 	}
 
-	enum GameMode
+	public enum GameMode
 	{ 
 		COLLECT,
 		TIME_TRIAL,
@@ -38,8 +38,8 @@ public class Game : Singleton<Game>
 
 	float stateTimer = 3; 
 
-	State state = State.TITLE;
-	GameMode gameMode = GameMode.COLLECT;
+	public State state = State.TITLE;
+	public GameMode gameMode = GameMode.COLLECT;
 
 	public int percentage { set { if (percentUI == null) return; percentUI.text = value.ToString() + "%"; } }
 
@@ -93,6 +93,7 @@ public class Game : Singleton<Game>
 			case State.GAME_OVER:
 				break;
 			case State.GAME_WIN:
+				gameOverScreen.SetActive(true);
 				break;
 			default:
 				break;
@@ -158,7 +159,8 @@ public class Game : Singleton<Game>
 		if (percentageCalc == 100)
         {
 			// show game win / change to win state / go to next level 
-			gameOverScreen.SetActive(true);
+			//gameOverScreen.SetActive(true);
+			state = State.GAME_WIN;
 		}
 	}
 
