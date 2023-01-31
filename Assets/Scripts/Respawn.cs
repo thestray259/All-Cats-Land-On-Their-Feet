@@ -12,9 +12,9 @@ public class Respawn : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            System.Console.WriteLine("Colliding wth Player. ");
-            collision.collider.GetComponent<Rigidbody>().position = respawnLocation.position; 
-            collision.collider.GetComponent<Rigidbody>().rotation = respawnLocation.rotation; 
+            Debug.Log("Colliding wth Player. ");
+            collision.collider.GetComponent<Rigidbody>().position = respawnLocation.position;
+            collision.collider.GetComponent<Rigidbody>().rotation = respawnLocation.rotation;
         }
     }
 }
