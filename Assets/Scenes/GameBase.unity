@@ -2024,6 +2024,11 @@ MonoBehaviour:
   gameOverScreen: {fileID: 413560959}
   gameData: {fileID: 11400000, guid: e7962882b49c8b84689cbcb207157ccf, type: 2}
   percentUI: {fileID: 114785483}
+  timerUI: {fileID: 5231741609527318690, guid: f6aed55f5e252294eb445ac3d8226cd7, type: 3}
+  timeTrial: 0
+  timer: 30
+  state: 0
+  gameMode: 0
 --- !u!4 &1389071289
 Transform:
   m_ObjectHideFlags: 0

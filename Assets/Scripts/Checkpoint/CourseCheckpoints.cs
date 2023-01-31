@@ -33,9 +33,14 @@ public class CourseCheckpoints : MonoBehaviour
 			CheckpointSingle correctCheckpointSingle = checkpointSingleList[nextCheckpointSingleIndex];
 			correctCheckpointSingle.Hide();
 
-			nextCheckpointSingleIndex = (nextCheckpointSingleIndex + 1) % checkpointSingleList.Count;
+			//nextCheckpointSingleIndex = (nextCheckpointSingleIndex + 1) % checkpointSingleList.Count;
+			nextCheckpointSingleIndex = nextCheckpointSingleIndex + 1;
 			OnPlayerCorrectCheckpoint?.Invoke(this, EventArgs.Empty);
-			
+		}
+		else if (checkpointSingleList.IndexOf(checkpointSingle) == checkpointSingleList.Count - 1)
+		{
+			//Gameover state
+			Game.Instance.state = Game.State.GAME_WIN;
 		}
 		else
 		{
