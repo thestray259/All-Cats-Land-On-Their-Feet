@@ -76,14 +76,7 @@ public class PlayerController : MonoBehaviour
 			OnFlipGravity();
 		}
 
-		if (Game.Instance.gameMode == Game.GameMode.ALT_GRAVITY)
-		{
-			velocity.z += gravity * Time.deltaTime;
-		}
-		else
-		{
-			velocity.y += gravity * Time.deltaTime;
-		}
+		velocity.y += gravity * Time.deltaTime;
 
 		controller.Move(velocity * Time.deltaTime);
 	}
