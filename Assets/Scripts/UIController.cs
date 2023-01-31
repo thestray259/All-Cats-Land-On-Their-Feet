@@ -32,6 +32,16 @@ public class UIController : MonoBehaviour
 		if(optionsUI != null) optionsUI.SetActive(false);
 	}
 
+	public void NormalGameMode()
+    {
+
+    }
+
+	public void TimeTrialGameMode()
+    {
+
+    }
+
 	public void MenuOn(GameObject menuToTurnOn)
     {
 		menuToTurnOn.SetActive(true);
