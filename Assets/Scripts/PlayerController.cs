@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (playerInput.currentControlScheme == "KeyboardMouse") MovePlayer();
-        if (playerInput.currentControlScheme == "Gamepad")
+        else if (playerInput.currentControlScheme == "Gamepad")
         {
             Vector2 input = playerInput.actions["Move"].ReadValue<Vector2>();
             transform.Translate(new Vector3(0, 0, input.y * playerSpeed * Time.deltaTime));
