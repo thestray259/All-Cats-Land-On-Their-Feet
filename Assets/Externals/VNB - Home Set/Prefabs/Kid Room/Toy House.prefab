@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4254185492146433888}
   - component: {fileID: 5728872728931024503}
   - component: {fileID: 157498635242872725}
+  - component: {fileID: -7032540016150557516}
   m_Layer: 0
   m_Name: Toy House
   m_TagString: Untagged
@@ -51,7 +52,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -82,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-7032540016150557516
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729978473729367517}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6641870477483907710, guid: 6b91d8ef45459e948aac73a56830a8a5, type: 3}
