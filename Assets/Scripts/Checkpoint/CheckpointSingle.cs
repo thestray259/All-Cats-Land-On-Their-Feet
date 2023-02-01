@@ -6,6 +6,7 @@ public class CheckpointSingle : MonoBehaviour
 {
 	private CourseCheckpoints courseCheckpoints;
 	private MeshRenderer meshRenderer;
+	[SerializeField] AudioSource audioSource;
 
 	private void Awake()
 	{
@@ -22,6 +23,7 @@ public class CheckpointSingle : MonoBehaviour
 		if (other.TryGetComponent<PlayerController>(out PlayerController player))
 		{
 			courseCheckpoints.PlayerThroughCheckpoint(this);
+			audioSource.Play();
 		}
 	}
 
