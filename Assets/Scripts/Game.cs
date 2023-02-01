@@ -171,6 +171,8 @@ public class Game : Singleton<Game>
 
 	public void TimeTrialMode()
 	{
+		timerUI.enabled = true;
+		timerUI.text = timer.ToString();
 		if (timeTrial == true)
 		{
 			timer -= Time.deltaTime;

@@ -1030,7 +1030,7 @@ MonoBehaviour:
   controller: {fileID: 7245266240732101624}
   camera: {fileID: 4722925876909004783}
   viewTransform: {fileID: 4722925876909004783}
-  speed: 6
+  speed: 3
   jumpForce: 2
   playerZRotation: 0
   gravityFlipped: 0
