@@ -23,7 +23,6 @@ public class CheckpointSingle : MonoBehaviour
 		if (other.TryGetComponent<PlayerController>(out PlayerController player))
 		{
 			courseCheckpoints.PlayerThroughCheckpoint(this);
-			audioSource.Play();
 		}
 	}
 
@@ -42,4 +41,9 @@ public class CheckpointSingle : MonoBehaviour
 		meshRenderer.enabled = false;
 		
 	}
+	public void PlayAudio()
+	{
+		audioSource.Play();
+	}
+
 }

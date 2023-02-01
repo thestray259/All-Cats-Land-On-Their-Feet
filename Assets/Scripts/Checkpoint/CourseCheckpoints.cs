@@ -11,6 +11,8 @@ public class CourseCheckpoints : MonoBehaviour
 	private List<CheckpointSingle> checkpointSingleList;
 	private int nextCheckpointSingleIndex;
 
+	
+
 	private void Awake()
 	{
 		Transform checkpointsTransform = transform.Find("Checkpoints");
@@ -30,8 +32,10 @@ public class CourseCheckpoints : MonoBehaviour
 		if (checkpointSingleList.IndexOf(checkpointSingle) == nextCheckpointSingleIndex)
 		{
 			Debug.Log("Correct");
+
 			CheckpointSingle correctCheckpointSingle = checkpointSingleList[nextCheckpointSingleIndex];
 			correctCheckpointSingle.Hide();
+			correctCheckpointSingle.PlayAudio();
 
 			//nextCheckpointSingleIndex = (nextCheckpointSingleIndex + 1) % checkpointSingleList.Count;
 			nextCheckpointSingleIndex = nextCheckpointSingleIndex + 1;
