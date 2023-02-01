@@ -29,6 +29,12 @@ public class CourseCheckpoints : MonoBehaviour
 
 	public void PlayerThroughCheckpoint(CheckpointSingle checkpointSingle)
 	{
+		if (checkpointSingleList.IndexOf(checkpointSingle) == checkpointSingleList.Count - 1)
+		{
+			//Gameover state
+			Game.Instance.state = Game.State.GAME_WIN;
+		}
+
 		if (checkpointSingleList.IndexOf(checkpointSingle) == nextCheckpointSingleIndex)
 		{
 			Debug.Log("Correct");
@@ -41,18 +47,21 @@ public class CourseCheckpoints : MonoBehaviour
 			nextCheckpointSingleIndex = nextCheckpointSingleIndex + 1;
 			OnPlayerCorrectCheckpoint?.Invoke(this, EventArgs.Empty);
 		}
-		else if (checkpointSingleList.IndexOf(checkpointSingle) == checkpointSingleList.Count - 1)
+		/*else if (checkpointSingleList.IndexOf(checkpointSingle) == checkpointSingleList.Count - 1)
 		{
 			//Gameover state
 			Game.Instance.state = Game.State.GAME_WIN;
-		}
+		}*/
 		else
 		{
-			Debug.Log("Wrong");
-			OnPlayerWrongCheckpoint?.Invoke(this, EventArgs.Empty);
+			if (checkpointSingleList.IndexOf(checkpointSingle) != nextCheckpointSingleIndex - 1)
+			{
+				Debug.Log("Wrong");
+				OnPlayerWrongCheckpoint?.Invoke(this, EventArgs.Empty);
 
-			CheckpointSingle correctCheckpointSingle = checkpointSingleList[nextCheckpointSingleIndex];
-			correctCheckpointSingle.Show();
+				CheckpointSingle correctCheckpointSingle = checkpointSingleList[nextCheckpointSingleIndex];
+				correctCheckpointSingle.Show();
+			}
 		}
 	}
 }
