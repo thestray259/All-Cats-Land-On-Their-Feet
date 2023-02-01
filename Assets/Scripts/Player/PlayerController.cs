@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
 	private Vector3 velocity;
 
 	//gravity
-	public bool gravityFlipped;
+	public bool gravityFlipped = false;
 	public float gravity;
 
 	//grounded and jump
@@ -44,8 +44,6 @@ public class PlayerController : MonoBehaviour
 		float vertical = Input.GetAxisRaw("Vertical");
 		Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
-		//rb.velocity += Physics.gravity * Time.fixedDeltaTime;
-
 		isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 		Debug.Log(isGrounded);
 
@@ -66,9 +64,13 @@ public class PlayerController : MonoBehaviour
 			controller.Move(moveDirection.normalized * speed * Time.deltaTime);
 		}
 
-		if (Input.GetButtonDown("Jump") && isGrounded)
+		if (Input.GetButtonDown("Jump") && isGrounded && gravityFlipped == false)
 		{
 			velocity.y = Mathf.Sqrt(jumpForce * -2 * gravity);
+		}
+		else if (Input.GetButtonDown("Jump") && isGrounded && gravityFlipped == true)
+		{
+			velocity.y = Mathf.Sqrt(jumpForce * 2 * gravity) * -1;
 		}
 
 		if (Input.GetKeyDown(KeyCode.E))
@@ -91,25 +93,13 @@ public class PlayerController : MonoBehaviour
 	public void OnFlipGravity()
 	{
 		Debug.Log("gravity flipped");
-		
-		if (gravityFlipped == false)
-		{
-			velocity.y = 0;
-			gravity *= -1;
-			playerZRotation += 180;
-			
-			viewTransform.transform.eulerAngles += new Vector3(0, 0, 180);
-			viewTransform.transform.LookAt(transform.position);
-		}
-		else
-		{
-			velocity.y = 0;
-			gravity *= -1;
-			playerZRotation -= 180;
 
-			viewTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
-			viewTransform.transform.LookAt(transform.position);
-			
-		}
+		gravityFlipped = !gravityFlipped;
+		velocity.y = 0;
+		gravity *= -1;
+		playerZRotation += 180;
+
+		viewTransform.transform.eulerAngles += new Vector3(0, 0, 180);
+		viewTransform.transform.LookAt(transform.position);
 	}
 }
