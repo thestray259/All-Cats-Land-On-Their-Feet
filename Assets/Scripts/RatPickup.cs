@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RatPickup : Pickup, IDestructable
 {
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
         Destroyed();
         gameObject.SetActive(false);

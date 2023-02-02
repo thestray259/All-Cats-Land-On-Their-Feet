@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class TreatPickup : Pickup, IDestructable
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         Destroyed();
         gameObject.SetActive(false); 
     }
-
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        Destroyed();
-        gameObject.SetActive(false);
-    }*/
 
     public void Destroyed()
     {
