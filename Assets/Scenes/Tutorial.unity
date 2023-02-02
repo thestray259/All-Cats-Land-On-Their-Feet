@@ -6134,6 +6134,18 @@ PrefabInstance:
       propertyPath: viewTransform
       value: 
       objectReference: {fileID: 6962669523248742785}
+    - target: {fileID: 775681458019147855, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
+      propertyPath: Damping.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775681458019147855, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
+      propertyPath: Damping.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 775681458019147855, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
+      propertyPath: Damping.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5892568121643834790, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
       propertyPath: m_Name
       value: Player
