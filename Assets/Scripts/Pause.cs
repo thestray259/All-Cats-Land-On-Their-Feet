@@ -7,6 +7,8 @@ public class Pause : Singleton<Pause>
 {
     [SerializeField] GameObject pauseUI;
 
+    [HideInInspector] public bool inGame = false;
+
     bool isPaused = false;
 
     public bool paused
