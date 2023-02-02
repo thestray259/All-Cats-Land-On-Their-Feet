@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CheckpointSingle : MonoBehaviour
 {
+	//test
 	private CourseCheckpoints courseCheckpoints;
 	private MeshRenderer meshRenderer;
 	[SerializeField] AudioSource audioSource;
