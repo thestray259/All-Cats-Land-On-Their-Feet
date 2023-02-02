@@ -16,10 +16,12 @@ public class UIController : MonoBehaviour
 		Application.Quit();
 	}
 
-	public void OnResume() 
+	public void OnResume() // doesn't work 
     {
 		Debug.Log("Resume Pressed");
-		Pause.Instance.PauseGame();
+
+		Pause pause = new Pause(); 
+		pause.PauseGame(); 
     }
 
 	public void OnOptions()
@@ -29,26 +31,6 @@ public class UIController : MonoBehaviour
 
 	public void OnBack()
     {
-		if(optionsUI != null) optionsUI.SetActive(false);
+		optionsUI.SetActive(false); 
 	}
-
-	public void NormalGameMode()
-    {
-
-    }
-
-	public void TimeTrialGameMode()
-    {
-
-    }
-
-	public void MenuOn(GameObject menuToTurnOn)
-    {
-		menuToTurnOn.SetActive(true);
-    }
-
-	public void MenuOff(GameObject menuToTurnOff)
-    {
-		menuToTurnOff.SetActive(false);
-    }
 }

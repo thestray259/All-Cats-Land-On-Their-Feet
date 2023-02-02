@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Game : Singleton<Game>
 {
-	enum State
+	public enum State
 	{
 		TITLE,
 		PLAYER_START,
@@ -16,23 +16,39 @@ public class Game : Singleton<Game>
 		GAME_WIN
 	}
 
+	public enum GameMode
+	{ 
+		COLLECT,
+		TIME_TRIAL,
+		ALT_GRAVITY
+	}
+
 	[SerializeField] ScreenFade screenFade;
 	[SerializeField] SceneLoader sceneLoader;
 	[SerializeField] GameObject gameOverScreen;
 
 	public GameData gameData;
 	[SerializeField] TMP_Text percentUI;
+	[SerializeField] TMP_Text timerUI;
+
+
+
+	public bool timeTrial = false;
+	public float timer = 30;
 
 	float stateTimer = 3; 
 
-	State state = State.TITLE;
+	public State state = State.TITLE;
+	public GameMode gameMode = GameMode.COLLECT;
 
 	public int percentage { set { if (percentUI == null) return; percentUI.text = value.ToString() + "%"; } }
 
 	private void Start()
 	{
 		gameData.intData["RatCount"] = 4;
-		gameData.intData["TreatCount"] = 6; 
+		gameData.intData["TreatCount"] = 6;
+
+		//timerUI.enabled = false;
 
 		InitScene();
 		SceneManager.activeSceneChanged += OnSceneWasLoaded; 
@@ -51,6 +67,21 @@ public class Game : Singleton<Game>
 	{
 		stateTimer -= Time.deltaTime;
 
+		switch (gameMode)
+		{
+			case GameMode.COLLECT:
+				CollectMode();
+				break;
+			case GameMode.TIME_TRIAL:
+				TimeTrialMode();
+				break;
+			case GameMode.ALT_GRAVITY:
+				AltGravityMode();
+				break;
+			default:
+				break;
+		}
+
 		switch (state)
 		{
 			case State.TITLE:
@@ -62,6 +93,7 @@ public class Game : Singleton<Game>
 			case State.GAME_OVER:
 				break;
 			case State.GAME_WIN:
+				gameOverScreen.SetActive(true);
 				break;
 			default:
 				break;
@@ -70,7 +102,7 @@ public class Game : Singleton<Game>
 
 	public void OnLoadScene(string sceneName)
     {
-		if (gameOverScreen != null) gameOverScreen.SetActive(false);
+		gameOverScreen.SetActive(false);
 		sceneLoader.Load(sceneName); 
 	}
 
@@ -127,7 +159,34 @@ public class Game : Singleton<Game>
 		if (percentageCalc == 100)
         {
 			// show game win / change to win state / go to next level 
-			gameOverScreen.SetActive(true);
+			//gameOverScreen.SetActive(true);
+			state = State.GAME_WIN;
 		}
+	}
+
+	public void CollectMode()
+	{
+
+	}
+
+	public void TimeTrialMode()
+	{
+		timerUI.enabled = true;
+		timerUI.text = timer.ToString();
+		if (timeTrial == true)
+		{
+			timer -= Time.deltaTime;
+			timerUI.enabled = true;
+		}
+
+		if (timer <= 0)
+		{
+			state = State.GAME_OVER;
+		}
+	}
+
+	public void AltGravityMode()
+	{
+
 	}
 }
