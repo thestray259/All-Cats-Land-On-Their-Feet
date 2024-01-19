@@ -74,20 +74,6 @@ public class Game : Singleton<Game>
 		sceneLoader.Load(sceneName); 
 	}
 
-	public void OnPlayerDead()
-    {
-/*		gameData.intData["Lives"]--; 
-
-		if (gameData.intData["Lives"] == 0)
-        {
-			OnLoadScene("Title"); 
-        }
-		else
-        {
-			OnLoadScene(SceneManager.GetActiveScene().name);
-        }*/
-    }
-
 	void OnSceneWasLoaded(Scene current, Scene next)
     {
 		InitScene(); 

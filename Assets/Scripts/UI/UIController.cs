@@ -27,11 +27,6 @@ public class UIController : MonoBehaviour
 		optionsUI.SetActive(true);
 	}
 
-	public void OnLevelSelect()
-	{
-		Debug.Log("Level Select button pushed");
-	}
-
 	public void OnBack()
     {
 		if(optionsUI != null) optionsUI.SetActive(false);
