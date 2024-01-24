@@ -5,9 +5,9 @@ using UnityEngine;
 public class CharacterCamera : MonoBehaviour
 {
     public Transform target;
-    public float distance = 5;
-    public float pitch = 45;
-    public float sensitivity = 1;
+    public float distance = 2;
+    public float pitch = 10;
+    public float sensitivity = 3;
     public float rate = 4;
 
     float yaw = 0;

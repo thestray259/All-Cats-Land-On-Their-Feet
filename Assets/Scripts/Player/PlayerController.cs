@@ -71,6 +71,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public bool IsGrounded()
+    {
+        return true;
+    } // do this
+
     public void OnJump()
     {
         if (gravityFlipped == false) rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -84,28 +89,6 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        if (playerInput.currentControlScheme == "KeyboardMouse")
-        {
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-            {
-                if (gravityFlipped == false) transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
-                else transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
-            }
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-            {
-                if (gravityFlipped == false) transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
-                else transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
-            }
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-            {
-                transform.position += transform.forward * playerSpeed * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-            {
-                transform.position += -transform.forward * playerSpeed * Time.deltaTime;
-            }
-        }
-
         // xz movement
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         direction = Vector3.ClampMagnitude(direction, 1);
@@ -113,5 +96,53 @@ public class PlayerController : MonoBehaviour
         // convert direction from world space to view space
         Quaternion viewSpace = Quaternion.AngleAxis(viewTransform.rotation.eulerAngles.y, Vector3.up);
         direction = viewSpace * direction;
+
+        // face direction
+        //if (direction.magnitude > 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+
+        if (playerInput.currentControlScheme == "KeyboardMouse")
+        {
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            {
+                if (gravityFlipped == false) transform.Rotate(rotateSpeed * Time.deltaTime * Vector3.up);
+                else transform.Rotate(rotateSpeed * Time.deltaTime * -Vector3.up);
+            }
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            {
+                if (gravityFlipped == false) transform.Rotate(rotateSpeed * Time.deltaTime * -Vector3.up);
+                else transform.Rotate(rotateSpeed * Time.deltaTime * Vector3.up);
+            }
+
+            // add checks for if gravity is flipped
+            // rn it's changing the orientation of the cat when it is flipped
+            if (gravityFlipped == false)
+            {
+                if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+                {
+                    if (direction.magnitude > 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+                    transform.position += playerSpeed * Time.deltaTime * transform.forward;
+                }
+                if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+                {
+                    if (direction.magnitude > 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+                    transform.position += playerSpeed * Time.deltaTime * transform.forward;
+                }
+            }
+            else
+            {
+                //direction.y *= -1;
+                Vector3 flipDirection = new Vector3(direction.x, 0);
+                if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+                {
+                    if (direction.magnitude > 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+                    transform.position += playerSpeed * Time.deltaTime * transform.forward;
+                }
+                if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+                {
+                    if (direction.magnitude > 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+                    transform.position += playerSpeed * Time.deltaTime * transform.forward;
+                }
+            }
+        }
     }
 }
