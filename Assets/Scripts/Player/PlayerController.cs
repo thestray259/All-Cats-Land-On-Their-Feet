@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float rotateSpeed = 20;
     [SerializeField] ForceMode forceMode;
     [SerializeField] Transform viewTransform;
-    [SerializeField] Transform lookAt;
     PlayerInput playerInput;
 
     bool gravityFlipped = false;
@@ -53,13 +52,7 @@ public class PlayerController : MonoBehaviour
         }
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        Debug.Log("isGrounded: " + isGrounded);
-
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-
+        if (isGrounded && velocity.y < 0) velocity.y = -2f;
     }
 
     private void FixedUpdate()
@@ -77,11 +70,6 @@ public class PlayerController : MonoBehaviour
         viewTransform.transform.eulerAngles += new Vector3(0, 0, 180);
         viewTransform.transform.LookAt(transform.position);
     }
-
-    public bool IsGrounded()
-    {
-        return true;
-    } // do this
 
     public void OnJump()
     {
