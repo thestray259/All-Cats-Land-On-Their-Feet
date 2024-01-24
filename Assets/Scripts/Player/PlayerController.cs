@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float rotateSpeed = 20;
     [SerializeField] ForceMode forceMode;
     [SerializeField] Transform viewTransform;
-    [SerializeField] Transform cameraTransform;
+    [SerializeField] Transform lookAt;
     PlayerInput playerInput;
 
     bool gravityFlipped = false; 
@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
 
         Physics.gravity = new Vector3(0, -9.8f, 0);
+
+        //viewTransform = (viewTransform == null) ? Camera.main.transform : viewTransform;
 
         Debug.Log("Current Control Scheme: " + playerInput.currentControlScheme);
     }
@@ -103,5 +105,13 @@ public class PlayerController : MonoBehaviour
                 transform.position += -transform.forward * playerSpeed * Time.deltaTime;
             }
         }
+
+        // xz movement
+        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        direction = Vector3.ClampMagnitude(direction, 1);
+
+        // convert direction from world space to view space
+        Quaternion viewSpace = Quaternion.AngleAxis(viewTransform.rotation.eulerAngles.y, Vector3.up);
+        direction = viewSpace * direction;
     }
 }

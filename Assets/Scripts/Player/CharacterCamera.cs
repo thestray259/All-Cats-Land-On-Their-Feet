@@ -21,6 +21,7 @@ public class CharacterCamera : MonoBehaviour
 	void Update()
     {
         yaw += Input.GetAxis("Mouse X") * sensitivity;
+        pitch += Input.GetAxis("Mouse Y") * sensitivity;
         Quaternion qyaw = Quaternion.AngleAxis(yaw, Vector3.up);
         Quaternion qpitch = Quaternion.AngleAxis(pitch, Vector3.right);
         Quaternion rotation = qyaw * qpitch;
