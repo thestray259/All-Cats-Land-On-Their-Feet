@@ -11,11 +11,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform lookAt;
     PlayerInput playerInput;
 
-    bool gravityFlipped = false; 
+    bool gravityFlipped = false;
+    public float gravity;
 
     Rigidbody rb;
     Vector3 force = Vector3.zero;
     Vector2 input = Vector2.zero;
+
+    public float playerZRotation;
+    private Vector3 velocity;
+
+    //grounded and jump
+    public float groundDistance = 0.4f;
+    public Transform groundCheck;
+    public LayerMask groundMask;
+    bool isGrounded;
 
     private void Start()
     {
@@ -41,7 +51,15 @@ public class PlayerController : MonoBehaviour
             if (gravityFlipped == false) transform.Rotate(new Vector3(0, input.x * rotateSpeed * Time.deltaTime, 0));
             else transform.Rotate(new Vector3(0, -input.x * rotateSpeed * Time.deltaTime, 0));
         }
-        
+
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        Debug.Log("isGrounded: " + isGrounded);
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
     }
 
     private void FixedUpdate()
@@ -51,24 +69,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnFlipGravity()
     {
-        if (gravityFlipped == false)
-        {
-            Physics.gravity = new Vector3(0, 9.8f, 0);
-            gravityFlipped = true;
-            transform.eulerAngles += new Vector3(0, 0, 180);
+        gravityFlipped = !gravityFlipped;
+        velocity.y = 0;
+        Physics.gravity *= -1;
+        transform.eulerAngles += new Vector3(0, 0, 180);
 
-            viewTransform.transform.eulerAngles += new Vector3(0, 0, 180);
-            //cameraTransform.transform.eulerAngles += new Vector3(0, 0, 180);
-        }
-        else
-        {
-            Physics.gravity = new Vector3(0, -9.8f, 0);
-            gravityFlipped = false;
-            transform.eulerAngles -= new Vector3(0, 0, 180);
-
-            viewTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
-            //cameraTransform.transform.eulerAngles -= new Vector3(0, 0, 180);
-        }
+        viewTransform.transform.eulerAngles += new Vector3(0, 0, 180);
+        viewTransform.transform.LookAt(transform.position);
     }
 
     public bool IsGrounded()
@@ -78,8 +85,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump()
     {
-        if (gravityFlipped == false) rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        else rb.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
+        if (isGrounded)
+        {
+            if (gravityFlipped == false) rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            else rb.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);            
+        }
     }
 
     public void OnMove(InputValue inputValue)

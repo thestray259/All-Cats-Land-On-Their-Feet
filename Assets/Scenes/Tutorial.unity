@@ -168,6 +168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_shelf_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fcf39d4c6514f3a4093ca6d8cf2f0a5d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fcf39d4c6514f3a4093ca6d8cf2f0a5d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -292,6 +296,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_WallArt_02
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e742d255ef0d9be46bc1988d06c66642, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e742d255ef0d9be46bc1988d06c66642, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -348,6 +356,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: f30702e5ce8ac0143bbd28d6805fc39f, type: 3}
       propertyPath: m_Name
       value: Prop_Small_Table_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: f30702e5ce8ac0143bbd28d6805fc39f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f30702e5ce8ac0143bbd28d6805fc39f, type: 3}
       propertyPath: m_RootOrder
@@ -453,6 +465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Plant_02
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2d48a06d54fb00241b8b83b754e8f430, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d48a06d54fb00241b8b83b754e8f430, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -545,6 +561,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2d9b35e9ed6f4cf4c8b43ef8e7c6592b, type: 3}
       propertyPath: m_Name
       value: Prop_Books_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2d9b35e9ed6f4cf4c8b43ef8e7c6592b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d9b35e9ed6f4cf4c8b43ef8e7c6592b, type: 3}
       propertyPath: m_RootOrder
@@ -647,6 +667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Game_Pad (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8a032fee58f90f4438a2ec85d30f5d66, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8a032fee58f90f4438a2ec85d30f5d66, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -708,6 +732,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 29f1573c479c8cc479e91fb41aa0cdb4, type: 3}
       propertyPath: m_Name
       value: Prop_Game_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 29f1573c479c8cc479e91fb41aa0cdb4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 29f1573c479c8cc479e91fb41aa0cdb4, type: 3}
       propertyPath: m_RootOrder
@@ -865,7 +893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 361124805}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EverythingElse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,6 +989,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: a5e4e229a6807c748a1fe2e685502fe2, type: 3}
       propertyPath: m_Name
       value: Prop_Game_Console
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a5e4e229a6807c748a1fe2e685502fe2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a5e4e229a6807c748a1fe2e685502fe2, type: 3}
       propertyPath: m_RootOrder
@@ -1116,7 +1148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 509216890}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LivingRoomLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1424,6 +1456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Tv_04
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 411f4b9e47e17a145b763c0040017737, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 411f4b9e47e17a145b763c0040017737, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1498,6 +1534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Couch_01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bfdb6623e4d583a4db78a56058d28f58, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bfdb6623e4d583a4db78a56058d28f58, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1560,6 +1600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Books_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2d9b35e9ed6f4cf4c8b43ef8e7c6592b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d9b35e9ed6f4cf4c8b43ef8e7c6592b, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -1621,6 +1665,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: a04893c925a84f141bc531bfd24cb80f, type: 3}
       propertyPath: m_Name
       value: Prop_Lamp_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a04893c925a84f141bc531bfd24cb80f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a04893c925a84f141bc531bfd24cb80f, type: 3}
       propertyPath: m_RootOrder
@@ -1781,6 +1829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Books_01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2d9b35e9ed6f4cf4c8b43ef8e7c6592b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d9b35e9ed6f4cf4c8b43ef8e7c6592b, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1854,6 +1906,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 46d41ac900beb3e4cae5303af1c562a8, type: 3}
       propertyPath: m_Name
       value: Prop_RubbishBin_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 46d41ac900beb3e4cae5303af1c562a8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 46d41ac900beb3e4cae5303af1c562a8, type: 3}
       propertyPath: m_RootOrder
@@ -2075,6 +2131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Game_Pad
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8a032fee58f90f4438a2ec85d30f5d66, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8a032fee58f90f4438a2ec85d30f5d66, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -2136,6 +2196,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d7f5409e4fd8a7243aab4cf8d1a20a47, type: 3}
       propertyPath: m_Name
       value: Prop_Big_Chair_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d7f5409e4fd8a7243aab4cf8d1a20a47, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d7f5409e4fd8a7243aab4cf8d1a20a47, type: 3}
       propertyPath: m_RootOrder
@@ -2230,6 +2294,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 83b20edf869f6da4ebd426f093cef519, type: 3}
       propertyPath: m_Name
       value: Prop_Flower_Pot_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 83b20edf869f6da4ebd426f093cef519, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 83b20edf869f6da4ebd426f093cef519, type: 3}
       propertyPath: m_RootOrder
@@ -2449,6 +2517,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Books_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 555dd9515ebd76f499825e5041ae7766, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 555dd9515ebd76f499825e5041ae7766, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -2572,6 +2644,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Insect_Frame_03
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c8782ba1607055049947e23f11da596b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c8782ba1607055049947e23f11da596b, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2663,7 +2739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 918224850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LevelObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2758,6 +2834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Game_01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7af93ea503b158c43ad16ee39d002742, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7af93ea503b158c43ad16ee39d002742, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -2819,6 +2899,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2d9b35e9ed6f4cf4c8b43ef8e7c6592b, type: 3}
       propertyPath: m_Name
       value: Prop_Books_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2d9b35e9ed6f4cf4c8b43ef8e7c6592b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2d9b35e9ed6f4cf4c8b43ef8e7c6592b, type: 3}
       propertyPath: m_RootOrder
@@ -3015,6 +3099,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 555dd9515ebd76f499825e5041ae7766, type: 3}
       propertyPath: m_Name
       value: Prop_Books_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 555dd9515ebd76f499825e5041ae7766, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 555dd9515ebd76f499825e5041ae7766, type: 3}
       propertyPath: m_RootOrder
@@ -3377,6 +3465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Cushion_02
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0ecec28d7cc89bc4a9ba47fd5e7a4e02, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0ecec28d7cc89bc4a9ba47fd5e7a4e02, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3434,6 +3526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_WallArt_03
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1fa3c9ee7ba6b8c47ae71b55f43080f5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1fa3c9ee7ba6b8c47ae71b55f43080f5, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -3490,6 +3586,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4fd7d70b73418d24185f7bfcc335933a, type: 3}
       propertyPath: m_Name
       value: Prop_Plant_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4fd7d70b73418d24185f7bfcc335933a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4fd7d70b73418d24185f7bfcc335933a, type: 3}
       propertyPath: m_RootOrder
@@ -3553,6 +3653,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3ec52e9e24d7b1f42b42ceeedec32352, type: 3}
       propertyPath: m_Name
       value: Prop_WallArt_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3ec52e9e24d7b1f42b42ceeedec32352, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3ec52e9e24d7b1f42b42ceeedec32352, type: 3}
       propertyPath: m_RootOrder
@@ -3681,6 +3785,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: fe433344ebe20bd458db356e4587a442, type: 3}
       propertyPath: m_Name
       value: Prop_Shelf_011
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe433344ebe20bd458db356e4587a442, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe433344ebe20bd458db356e4587a442, type: 3}
       propertyPath: m_RootOrder
@@ -3817,7 +3925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1400733496}
   - component: {fileID: 1400733497}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3911,6 +4019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Books_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 555dd9515ebd76f499825e5041ae7766, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 555dd9515ebd76f499825e5041ae7766, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -3983,6 +4095,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 13626540095a53146ae4bc6fa6ddae0b, type: 3}
       propertyPath: m_Name
       value: Prop_Plant_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 13626540095a53146ae4bc6fa6ddae0b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 13626540095a53146ae4bc6fa6ddae0b, type: 3}
       propertyPath: m_RootOrder
@@ -4064,6 +4180,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 555dd9515ebd76f499825e5041ae7766, type: 3}
       propertyPath: m_Name
       value: Prop_Books_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 555dd9515ebd76f499825e5041ae7766, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 555dd9515ebd76f499825e5041ae7766, type: 3}
       propertyPath: m_RootOrder
@@ -4224,6 +4344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_shelf_01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fcf39d4c6514f3a4093ca6d8cf2f0a5d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fcf39d4c6514f3a4093ca6d8cf2f0a5d, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -4352,6 +4476,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Lights_02
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a15efef3ad85e8a4daf1983a97bcbe32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a15efef3ad85e8a4daf1983a97bcbe32, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4430,6 +4558,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 2385e23c1146d35418014bb52582049f, type: 3}
       propertyPath: m_Name
       value: Prop_Insect_Frame_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2385e23c1146d35418014bb52582049f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2385e23c1146d35418014bb52582049f, type: 3}
       propertyPath: m_RootOrder
@@ -4587,6 +4719,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: b110cab362d5fa040a74cdd3b949e86f, type: 3}
       propertyPath: m_Name
       value: Prop_Shelf_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b110cab362d5fa040a74cdd3b949e86f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b110cab362d5fa040a74cdd3b949e86f, type: 3}
       propertyPath: m_RootOrder
@@ -5028,6 +5164,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6998843494090426619, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
 --- !u!114 &1759582737 stripped
@@ -5218,6 +5358,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: cae28b112979e1648a07416fd5ece323, type: 3}
       propertyPath: m_Name
       value: Prop_Rug_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cae28b112979e1648a07416fd5ece323, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cae28b112979e1648a07416fd5ece323, type: 3}
       propertyPath: m_RootOrder
@@ -5416,7 +5560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957088983}
   - component: {fileID: 1957088984}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Area Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5508,7 +5652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1980643662}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lighting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5607,6 +5751,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: fcf39d4c6514f3a4093ca6d8cf2f0a5d, type: 3}
       propertyPath: m_Name
       value: Prop_shelf_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fcf39d4c6514f3a4093ca6d8cf2f0a5d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fcf39d4c6514f3a4093ca6d8cf2f0a5d, type: 3}
       propertyPath: m_RootOrder
