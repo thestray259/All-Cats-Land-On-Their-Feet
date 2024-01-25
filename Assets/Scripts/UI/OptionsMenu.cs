@@ -7,9 +7,19 @@ public class OptionsMenu : MonoBehaviour
 {
     [SerializeField] AudioMixer audioMixer;
 
-    public void SetVolume(float volume)
+    public void SetMaster(float volume)
     {
-        audioMixer.SetFloat("Volume", volume);
+        audioMixer.SetFloat("Master", volume);
+    }
+
+    public void SetMusic(float volume)
+    {
+        audioMixer.SetFloat ("Music", volume);
+    }
+
+    public void SetSFX(float volume)
+    {
+        audioMixer.SetFloat("SFX", volume);
     }
 
     public void SetFullscreen(bool isFullscreen)
