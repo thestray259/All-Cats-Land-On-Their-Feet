@@ -96,9 +96,6 @@ public class PlayerController : MonoBehaviour
         Quaternion viewSpace = Quaternion.AngleAxis(viewTransform.rotation.eulerAngles.y, Vector3.up);
         direction = viewSpace * direction;
 
-        // face direction
-        //if (direction.magnitude > 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-
         if (playerInput.currentControlScheme == "KeyboardMouse")
         {
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
@@ -129,17 +126,32 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Vector3 flipDirection = new Vector3(direction.x, direction.y, 0);
+                Quaternion currentRotation = transform.rotation;
+
                 if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
                 {
                     if (direction.magnitude > 0) direction = -direction; transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-                    transform.position += playerSpeed * Time.deltaTime * transform.forward;
+                    transform.position -= playerSpeed * Time.deltaTime * transform.forward;
+
+                    Vector3 currentEulerAngles = transform.rotation.eulerAngles;
+                    currentEulerAngles.z = playerZRotation;
+                    currentEulerAngles.x = direction.x;
+                    currentEulerAngles.y = direction.y;
+                    transform.rotation = Quaternion.Euler(currentEulerAngles);
                 }
                 if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
                 {
                     if (direction.magnitude > 0) direction = -direction; transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-                    transform.position += playerSpeed * Time.deltaTime * transform.forward;
+                    transform.position -= playerSpeed * Time.deltaTime * transform.forward;
+
+                    Vector3 currentEulerAngles = transform.rotation.eulerAngles;
+                    currentEulerAngles.z = playerZRotation;
+                    currentEulerAngles.x = direction.x;
+                    currentEulerAngles.y = direction.y;
+                    transform.rotation = Quaternion.Euler(currentEulerAngles);
                 }
+
+                transform.rotation = currentRotation;
             }
         }
     }
