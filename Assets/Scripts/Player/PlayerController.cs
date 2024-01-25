@@ -129,16 +129,15 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //direction.y *= -1;
-                Vector3 flipDirection = new Vector3(direction.x, 0);
+                Vector3 flipDirection = new Vector3(direction.x, direction.y, 0);
                 if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
                 {
-                    if (direction.magnitude > 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+                    if (direction.magnitude > 0) direction = -direction; transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
                     transform.position += playerSpeed * Time.deltaTime * transform.forward;
                 }
                 if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
                 {
-                    if (direction.magnitude > 0) transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+                    if (direction.magnitude > 0) direction = -direction; transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
                     transform.position += playerSpeed * Time.deltaTime * transform.forward;
                 }
             }
