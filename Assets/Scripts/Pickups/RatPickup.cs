@@ -6,8 +6,11 @@ public class RatPickup : Pickup, IDestructable
 {
     private void OnCollisionEnter(Collision collision)
     {
+        sfx.Play();
         Destroyed();
-        gameObject.SetActive(false);
+
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<MeshCollider>().enabled = false;
     }
 
     public void Destroyed()

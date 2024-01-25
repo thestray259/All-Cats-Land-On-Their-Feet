@@ -264,7 +264,13 @@ MonoBehaviour:
   rotateSpeed: 200
   forceMode: 0
   viewTransform: {fileID: 1251836079}
-  lookAt: {fileID: 1251836079}
+  gravity: 0
+  playerZRotation: 0
+  groundDistance: 0.4
+  groundCheck: {fileID: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &3241004311212480761
 MonoBehaviour:
   m_ObjectHideFlags: 0

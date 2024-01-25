@@ -2622,6 +2622,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: c6a0eb63217ea064f8b593e2bb42b3a7, type: 3}
+--- !u!82 &839441861 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1389936600633410951, guid: ce1231009c4a7964a9e2c1dbc3f151a6, type: 3}
+  m_PrefabInstance: {fileID: 4825537953647159672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &844797024 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1637519470943376298, guid: 76e28fde236a7c44ab1fee36414fbd71, type: 3}
@@ -3000,7 +3005,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012261066}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6d1087fba1935d641a10d650c1612c51, type: 3}
@@ -5168,6 +5173,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9215222767665014373, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -6122486570237021385, guid: 02aed7a14175a8e4b8c807534641480b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648bf44c770faa248889cf6c2e1e02f8, type: 3}
 --- !u!114 &1759582737 stripped
@@ -6221,6 +6230,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3319064033627743935, guid: 76e28fde236a7c44ab1fee36414fbd71, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4066629353062115200, guid: 76e28fde236a7c44ab1fee36414fbd71, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6266,6 +6279,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1867667905}
     m_Modifications:
+    - target: {fileID: 1389936600633410951, guid: ce1231009c4a7964a9e2c1dbc3f151a6, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8fd80513cfe04514db5c0967e76390e6, type: 3}
+    - target: {fileID: 1389936600633410951, guid: ce1231009c4a7964a9e2c1dbc3f151a6, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389936600633410951, guid: ce1231009c4a7964a9e2c1dbc3f151a6, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1778447698797228505, guid: 02aed7a14175a8e4b8c807534641480b, type: 2}
     - target: {fileID: 2061351583480482081, guid: ce1231009c4a7964a9e2c1dbc3f151a6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6310,6 +6335,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2061351583480654096, guid: ce1231009c4a7964a9e2c1dbc3f151a6, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 839441861}
     - target: {fileID: 2061351583480654111, guid: ce1231009c4a7964a9e2c1dbc3f151a6, type: 3}
       propertyPath: m_Name
       value: Cheese

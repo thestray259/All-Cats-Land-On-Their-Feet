@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    public AudioSource sfx;
+
     public float amplitude; // how much goes up and down 
     public float rate;
     public float spinRate;
@@ -14,6 +16,8 @@ public class Pickup : MonoBehaviour
 
     void Start()
     {
+        GetComponent<AudioSource>().playOnAwake = false;
+
         time = Random.Range(0.0f, 5.0f);
         angle = Random.Range(0f, 360f);
         initialPosition = transform.position;
@@ -24,8 +28,7 @@ public class Pickup : MonoBehaviour
         time += Time.deltaTime * rate;
         angle += Time.deltaTime * spinRate;
 
-        Vector3 offset = Vector3.up * Mathf.Sin(time) * amplitude;
-        transform.position = initialPosition + offset;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+        Vector3 offset = amplitude * Mathf.Sin(time) * Vector3.up;
+        transform.SetPositionAndRotation(initialPosition + offset, Quaternion.AngleAxis(angle, Vector3.up));
     }
 }
