@@ -127,31 +127,47 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Quaternion currentRotation = transform.rotation;
+                Vector3 currentEulerAngles = transform.rotation.eulerAngles;
 
                 if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
                 {
-                    if (direction.magnitude > 0) direction = -direction; transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-                    transform.position -= playerSpeed * Time.deltaTime * transform.forward;
+                    if (direction.magnitude > 0) 
+                    {
+                        direction = -direction;
+                        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+                    }
 
-                    Vector3 currentEulerAngles = transform.rotation.eulerAngles;
                     currentEulerAngles.z = playerZRotation;
                     currentEulerAngles.x = direction.x;
                     currentEulerAngles.y = direction.y;
                     transform.rotation = Quaternion.Euler(currentEulerAngles);
+                    //transform.rotation = Quaternion.LookRotation(currentEulerAngles);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentEulerAngles), rotateSpeed * Time.deltaTime);
+
+                    Debug.Log("(" + currentEulerAngles.x + ", " + currentEulerAngles.y + ", " + currentEulerAngles.z + ")");
+                    transform.position -= playerSpeed * Time.deltaTime * transform.forward;
                 }
                 if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
                 {
-                    if (direction.magnitude > 0) direction = -direction; transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-                    transform.position -= playerSpeed * Time.deltaTime * transform.forward;
+                    if (direction.magnitude > 0)
+                    {
+                        direction = -direction;
+                        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+                    }
 
-                    Vector3 currentEulerAngles = transform.rotation.eulerAngles;
                     currentEulerAngles.z = playerZRotation;
                     currentEulerAngles.x = direction.x;
                     currentEulerAngles.y = direction.y;
                     transform.rotation = Quaternion.Euler(currentEulerAngles);
+                    //transform.rotation = Quaternion.LookRotation(currentEulerAngles);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentEulerAngles), rotateSpeed * Time.deltaTime);
+
+                    Debug.Log("(" + currentEulerAngles.x + ", " + currentEulerAngles.y + ", " + currentEulerAngles.z + ")");
+                    transform.position -= playerSpeed * Time.deltaTime * transform.forward;
                 }
 
-                transform.rotation = currentRotation;
+                //transform.rotation = currentEulerAngles;
+                //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentEulerAngles), rotateSpeed * Time.deltaTime);
             }
         }
     }
