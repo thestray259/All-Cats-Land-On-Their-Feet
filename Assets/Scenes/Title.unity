@@ -2288,7 +2288,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 739769120}
   m_HandleRect: {fileID: 1625222441}
   m_Direction: 0
-  m_MinValue: -80
+  m_MinValue: -50
   m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
@@ -2655,7 +2655,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tutorial
+  m_text: Living Room
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e37d0a3a8b8edf54cb442d7e04dd50ea, type: 2}
   m_sharedMaterial: {fileID: -6134644060069372623, guid: e37d0a3a8b8edf54cb442d7e04dd50ea, type: 2}
@@ -4729,7 +4729,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 270315367}
   m_HandleRect: {fileID: 84597500}
   m_Direction: 0
-  m_MinValue: -80
+  m_MinValue: -50
   m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
@@ -5089,7 +5089,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1565036928}
   m_HandleRect: {fileID: 187157499}
   m_Direction: 0
-  m_MinValue: -80
+  m_MinValue: -50
   m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0

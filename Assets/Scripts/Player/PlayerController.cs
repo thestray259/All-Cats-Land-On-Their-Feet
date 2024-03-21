@@ -110,7 +110,6 @@ public class PlayerController : MonoBehaviour
             }
 
             // add checks for if gravity is flipped
-            // rn it's changing the orientation of the cat when it is flipped
             if (gravityFlipped == false)
             {
                 if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
@@ -126,25 +125,16 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Quaternion currentRotation = transform.rotation;
-                Vector3 currentEulerAngles = transform.rotation.eulerAngles;
+                Vector3 upPos = -Vector3.up;
 
                 if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
                 {
-                    if (direction.magnitude > 0) 
+                    if (direction.magnitude > 0)
                     {
                         direction = -direction;
-                        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
                     }
 
-                    currentEulerAngles.z = playerZRotation;
-                    currentEulerAngles.x = direction.x;
-                    currentEulerAngles.y = direction.y;
-                    transform.rotation = Quaternion.Euler(currentEulerAngles);
-                    //transform.rotation = Quaternion.LookRotation(currentEulerAngles);
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentEulerAngles), rotateSpeed * Time.deltaTime);
-
-                    Debug.Log("(" + currentEulerAngles.x + ", " + currentEulerAngles.y + ", " + currentEulerAngles.z + ")");
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction, upPos), rotateSpeed * Time.deltaTime);
                     transform.position -= playerSpeed * Time.deltaTime * transform.forward;
                 }
                 if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
@@ -152,22 +142,12 @@ public class PlayerController : MonoBehaviour
                     if (direction.magnitude > 0)
                     {
                         direction = -direction;
-                        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
                     }
 
-                    currentEulerAngles.z = playerZRotation;
-                    currentEulerAngles.x = direction.x;
-                    currentEulerAngles.y = direction.y;
-                    transform.rotation = Quaternion.Euler(currentEulerAngles);
-                    //transform.rotation = Quaternion.LookRotation(currentEulerAngles);
-                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentEulerAngles), rotateSpeed * Time.deltaTime);
-
-                    Debug.Log("(" + currentEulerAngles.x + ", " + currentEulerAngles.y + ", " + currentEulerAngles.z + ")");
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction, upPos), rotateSpeed * Time.deltaTime);
                     transform.position -= playerSpeed * Time.deltaTime * transform.forward;
                 }
 
-                //transform.rotation = currentEulerAngles;
-                //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentEulerAngles), rotateSpeed * Time.deltaTime);
             }
         }
     }
